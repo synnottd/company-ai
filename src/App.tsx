@@ -1,37 +1,32 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
 import { Card } from './components/ui/card'
 import { ThemeProvider } from './components/theme-provider'
 import { ModeToggle } from './components/mode-toggle'
+import { ConversationViewer } from './components/conversation-viewer'
+import type { Message } from './types/message'
+
+const messages: Message[] = [
+  { id: 1, text: "Hey! How are you?", sender: "user", time: "10:00" },
+  { id: 2, text: "I'm good, thanks! And you?", sender: "ai", time: "10:01" },
+  { id: 3, text: "Doing well!", sender: "user", time: "10:02" },
+  { id: 4, text: "What are you up to?", sender: "ai", time: "10:03" },
+  { id: 5, text: "Just working on a project.", sender: "user", time: "10:04" },
+  { id: 6, text: "Sounds interesting!", sender: "ai", time: "10:05" },
+  { id: 7, text: "Yeah, it's pretty cool.", sender: "user", time: "10:06" },
+  { id: 8, text: "What about you?", sender: "ai", time: "10:07" },
+];
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className='flex justify-end'><ModeToggle /></div>
-      <div className="flex justify-center gap-2">
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='flex flex-col justify-center items-center h-screen'>
+        <div className='flex w-full justify-end grow shrink'><ModeToggle /></div>
+        <ConversationViewer messages={messages} />
       </div>
-      <h1>Vite + React</h1>
-      <Card className='p-2em'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </Card>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
   </ThemeProvider>
   )
 }
