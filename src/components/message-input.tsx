@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Button } from "./ui/button"
-import { on } from "events"
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 
 export interface MessageInputProps {
@@ -13,17 +12,19 @@ export interface MessageInputProps {
 export const MessageInput: React.FC<MessageInputProps> = ({ value, onChange, onSend, disabled }) => {
   const [listening, setListening] = React.useState(false)
   const recognitionRef = React.useRef<any>(null)
-
   React.useEffect(() => {
     if (!SpeechRecognition) return
     const recognition = new SpeechRecognition()
     recognition.lang = 'en-US'
-    recognition.interimResults = false
+    recognition.interimResults = true
+    recognition.continuous = true
     recognition.maxAlternatives = 1
-    recognition.onresult = (event: any) => {
+    recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript
       onChange(transcript)
-      onSend()
+      if (event.results[0].isFinal) {
+        onSend()
+      }
     }
     recognition.onend = () => setListening(false)
     recognition.onerror = () => setListening(false)
@@ -31,7 +32,7 @@ export const MessageInput: React.FC<MessageInputProps> = ({ value, onChange, onS
     return () => {
       recognition.stop()
     }
-  }, [onChange, value])
+  }, [ ])
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     onChange(e.target.value)
