@@ -2,8 +2,6 @@
 
 This is an interview tech test solution. 
 
-To run it you need to `cp .env-example .env` and fill in the values.
-
 Lots of github copilot usage. I was presently surprised how little garbage it spewed. For example it generated the tests pretty much on its own after I set up vitest.
 
 In production, having the supabase and openapi keys on the clients wouldn't work. An easy solution would be a proxy backend or severless function that we could control for misuse. If you were combining this with auth, supabase and openapi might support using that.
@@ -14,6 +12,13 @@ Some things I would do with more time.
   - The message UI is probably not the best
 - Let the llm handle the whole conversation.
 - conversation-viewer does too much the presentaional part should be split out. The click handler can probably be simplified.
+
+# Start guide
+
+`cp .env-example .env` and fill in the values.
+`npm i`
+`npm run dev`
+`npm run test`
 
 # React + TypeScript + Vite
 
