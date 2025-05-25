@@ -1,5 +1,4 @@
 export interface Company {
-    userName: string
     companyName: string
     role: string
     objective: string
