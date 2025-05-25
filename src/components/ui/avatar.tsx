@@ -55,7 +55,7 @@ function RobotAvatar({
 }: React.ComponentProps<typeof Avatar>) {
   return (
     <Avatar {...props} >
-      <AvatarImage src={robotUrl} />
+      <AvatarImage src={robotUrl} alt="robot avatar" />
       <AvatarFallback>AI</AvatarFallback>
     </Avatar>
   );
@@ -66,7 +66,7 @@ function UserAvatar({
 }: React.ComponentProps<typeof Avatar>) {
   return (
     <Avatar {...props} >
-      <AvatarImage src={userUrl} />
+      <AvatarImage src={userUrl} alt="user avatar" />
       <AvatarFallback>YOU</AvatarFallback>
     </Avatar>
   );
