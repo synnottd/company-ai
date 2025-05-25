@@ -1,3 +1,18 @@
+# Intro
+
+This is an interview tech test solution. 
+
+To run it you need to `cp .env-example .env` and fill in the values.
+
+Lots of github copilot usage. I was presently surprised how little garbage it spewed. For example it generated the tests pretty much on its own after I set up vitest.
+
+Some things I would do with more time.
+- Better UX
+  - allow users to correct individual responses
+  - The message UI is probably not the best
+- Let the llm handle the whole conversation.
+- conversation-viewer does too much the presentaional part should be split out. The click handler can probably be simplified.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

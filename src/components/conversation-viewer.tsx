@@ -21,8 +21,6 @@ export const ConversationViewer: React.FC = () => {
       behavior: "smooth"
     }));
 
-  
-
   const handleInputChange = (text: string) => {
     dispatch({ type: "USER_INPUT", text })
   }
