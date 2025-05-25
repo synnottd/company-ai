@@ -6,7 +6,7 @@ To run it you need to `cp .env-example .env` and fill in the values.
 
 Lots of github copilot usage. I was presently surprised how little garbage it spewed. For example it generated the tests pretty much on its own after I set up vitest.
 
-In production, having the supabase and openapi keys on the clients wouldn't work. An easy solution would be a proxy backend or severless function that we could control for misuse. If you were combining this with auth, supabase and openapi might support using that auth to auth with them. That might work too.
+In production, having the supabase and openapi keys on the clients wouldn't work. An easy solution would be a proxy backend or severless function that we could control for misuse. If you were combining this with auth, supabase and openapi might support using that.
 
 Some things I would do with more time.
 - Better UX
